@@ -1,0 +1,60 @@
+<div class="layout-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="logo-main">APIX<span>BR</span></span>
+        </div>
+
+        <nav class="menu">
+            <a routerLink="/app/dashboard" routerLinkActive="active">
+                <mat-icon>dashboard</mat-icon>
+                Dashboard
+            </a>
+
+            <a routerLink="/app/apis" routerLinkActive="active">
+                <mat-icon>api</mat-icon>
+                APIs
+            </a>
+
+            <a routerLink="/app/billing" routerLinkActive="active">
+                <mat-icon>payments</mat-icon>
+                Billing
+            </a>
+
+            <a routerLink="/app/settings" routerLinkActive="active">
+                <mat-icon>settings</mat-icon>
+                Configurações
+            </a>
+        </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="content-area">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="space"></div>
+
+            <div class="user-section">
+                @if (authService.usuario$ | async; as user) {
+                    <span class="username">Olá, {{ user.name }}</span>
+                }
+
+                <img src="https://avatars.githubusercontent.com/u/9919?v=4" class="avatar">
+
+                <!-- Botão Logout -->
+                <button class="logout-button" (click)="logout()">
+                    <mat-icon>logout</mat-icon>
+                </button>
+            </div>
+        </header>
+
+        <!-- ROUTER VIEW -->
+        <main class="page-content">
+            <router-outlet></router-outlet>
+        </main>
+
+    </div>
+
+</div>

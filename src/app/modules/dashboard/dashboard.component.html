@@ -1,0 +1,38 @@
+<div class="dashboard-wrapper">
+
+  <h1>Dashboard</h1>
+
+  <div class="metrics-grid">
+    <mat-card class="metric-card" *ngFor="let m of metrics">
+      <mat-icon>{{ m.icon }}</mat-icon>
+      <div class="metric-info">
+        <h2>{{ m.value }}</h2>
+        <p>{{ m.title }}</p>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="charts">
+    <mat-card class="chart-card">
+      <apx-chart
+        #donutChart
+        [series]="donutChartOptions.series"
+        [chart]="donutChartOptions.chart"
+        [labels]="donutChartOptions.labels"
+        [plotOptions]="donutChartOptions.plotOptions"
+        [responsive]="donutChartOptions.responsive"
+      ></apx-chart>
+    </mat-card>
+
+    <mat-card class="chart-card">
+      <apx-chart
+        #lineChart
+        [series]="lineChartOptions.series"
+        [chart]="lineChartOptions.chart"
+        [xaxis]="lineChartOptions.xaxis"
+        [dataLabels]="lineChartOptions.dataLabels"
+      ></apx-chart>
+    </mat-card>
+  </div>
+
+</div>

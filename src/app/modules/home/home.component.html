@@ -1,0 +1,29 @@
+<div class="home-container">
+
+  <!-- Hero section -->
+  <section class="hero">
+    <h1>Bem-vindo ao ApixBR</h1>
+    <p>Transformando ideias em soluções com APIs inteligentes e gestão completa.</p>
+    <div class="buttons">
+      <a mat-raised-button color="primary" routerLink="/login">Login</a>
+      <a mat-raised-button color="accent" routerLink="/register">Registrar</a>
+    </div>
+  </section>
+
+  <!-- Features section -->
+  <section class="features">
+    <mat-card class="feature-card" *ngFor="let f of features">
+      <mat-icon>{{ f.icon }}</mat-icon>
+      <h3>{{ f.title }}</h3>
+      <p>{{ f.description }}</p>
+    </mat-card>
+  </section>
+
+  <!-- Call to action -->
+  <section class="cta">
+    <h2>Comece agora</h2>
+    <p>Registre-se e explore todas as funcionalidades do ApixBR.</p>
+    <a mat-raised-button color="primary" routerLink="/register">Registrar-se</a>
+  </section>
+
+</div>

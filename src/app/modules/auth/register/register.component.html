@@ -1,0 +1,48 @@
+<div class="register-wrapper">
+  <div class="register-card animate">
+
+    <!-- Logo -->
+    <div class="logo">
+      <span class="logo-main">APIX<span>BR</span></span>
+    </div>
+
+    <h2>Criar Conta</h2>
+
+    @if(error) {
+    <div class="error">{{ error }}</div>
+    }
+
+    <form (ngSubmit)="register()">
+
+      <mat-form-field appearance="fill" class="full">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="name" name="nome" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email" name="email" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" [(ngModel)]="password" name="password" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full">
+        <mat-label>Confirmar Senha</mat-label>
+        <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" class="btn-register full">
+        Registrar
+      </button>
+    </form>
+
+    <p class="login-link">
+      Já tem conta?
+      <a routerLink="/login">Entrar</a>
+    </p>
+
+  </div>
+</div>
