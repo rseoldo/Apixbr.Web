@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postbuild": "cp _routes.json dist/apixbr-web/_routes.json"
   },
   "prettier": {
     "printWidth": 100,
