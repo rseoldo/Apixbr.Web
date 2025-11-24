@@ -21,9 +21,6 @@ node_modules/
 # ENVIRONMENT FILES
 # --------------------------------------------------------
 
-# Angular environment configs
-src/environments/environment*.ts
-
 # Local environment overrides
 .env
 *.env

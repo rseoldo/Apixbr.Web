@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, tap } from 'rxjs';
 import { TokenService } from '../services/token.service';
+import { environment } from '../../../environments/environment';
 
 interface LoginResponse {
   accessToken: string;
@@ -13,10 +14,9 @@ interface LoginResponse {
   };
 }
 
-
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'https://localhost:7228/api';
+  private apiUrl = environment.apiUrl;
 
   // Armazena os dados do usuário de forma reativa
   private usuarioSubject = new BehaviorSubject<any | null>(null);
