@@ -1,28 +1,49 @@
-import { Component } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { Component, HostBinding, Renderer2 } from '@angular/core';
+import { CommonModule, AsyncPipe } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthService } from '../../core/auth/auth.service';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, MatIconModule, AsyncPipe],
+  imports: [
+    CommonModule,
+    AsyncPipe,
+    RouterModule,
+    MatIconModule
+  ],
   templateUrl: './main-layout.component.html',
-  styleUrl: './main-layout.component.scss'
+  styleUrls: ['./main-layout.component.scss']
 })
 export class MainLayoutComponent {
+  sidebarOpen = false;
 
-    constructor(public authService: AuthService, private router: Router) {}
-    
-  // Método para abrir/fechar a sidebar em mobile
+  constructor(
+    public authService: AuthService,
+    private renderer: Renderer2
+  ) {}
+
   toggleSidebar() {
-    const sidebarEl = document.querySelector('.sidebar');
-    sidebarEl?.classList.toggle('open');
+    this.sidebarOpen = !this.sidebarOpen;
+    this.lockScroll(this.sidebarOpen);
+  }
+
+  closeSidebar() {
+    this.sidebarOpen = false;
+    this.lockScroll(false);
   }
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/login']);
+  }
+
+  // 🔹 Bloqueia scroll quando menu aberto no mobile
+  private lockScroll(lock: boolean) {
+    if (lock) {
+      this.renderer.setStyle(document.body, 'overflow', 'hidden');
+    } else {
+      this.renderer.removeStyle(document.body, 'overflow');
+    }
   }
 }
