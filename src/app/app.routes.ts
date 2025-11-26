@@ -52,6 +52,11 @@ export const appRoutes: Routes = [
                 path: 'apis/test',
                 loadComponent: () => import('./modules/apis/components/apis-test/apis-test.component').then(m => m.ApisTestComponent),
                 canActivate: [AuthGuard]
+            },
+                        {
+                path: 'cnpj-consulta',
+                loadComponent: () => import('./modules/components/cnpj-consulta/cnpj-consulta.component').then(m => m.CnpjConsultaComponent),
+                canActivate: [AuthGuard]
             }
         ]
     },

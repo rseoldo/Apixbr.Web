@@ -1,0 +1,49 @@
+<div class="container">
+
+  <h2 class="text-center">Consulta de CNPJ</h2>
+
+  <mat-form-field appearance="outline" class="full-width mt-3">
+    <mat-label>CNPJ</mat-label>
+    <input matInput placeholder="00.000.000/0000-00" [formControl]="cnpjControl" mask="00.000.000/0000-00">
+    <mat-error *ngIf="cnpjControl.invalid && cnpjControl.touched">CNPJ inválido</mat-error>
+  </mat-form-field>
+
+  <div class="text-center mt-2">
+    <button mat-raised-button color="primary" (click)="consultar()" [disabled]="loading || cnpjControl.invalid">
+      Consultar
+    </button>
+  </div>
+
+  <div *ngIf="loading" class="text-center mt-3">
+    <mat-progress-spinner mode="indeterminate" color="primary"></mat-progress-spinner>
+    <p>Consultando...</p>
+  </div>
+
+  <mat-card *ngIf="cnpjData" class="cnpj-card-dark mt-3">
+    <mat-card-title class="cnpj-card-title">
+      {{ cnpjData.razao_social || 'N/D' }} ({{ cnpjData.nome_fantasia || 'N/D' }})
+    </mat-card-title>
+    <mat-card-content class="cnpj-card-content">
+      <p><strong>CNPJ:</strong> {{ cnpjData.cnpj || 'N/D' }}</p>
+      <p><strong>Situação:</strong> {{ cnpjData.situacao || 'N/D' }}</p>
+      <p><strong>Tipo:</strong> {{ cnpjData.tipo || 'N/D' }}</p>
+      <p><strong>Abertura:</strong> {{ cnpjData.abertura || 'N/D' }}</p>
+      <p><strong>Natureza Jurídica:</strong> {{ cnpjData.natureza_juridica || 'N/D' }}</p>
+      <p>
+        <strong>Endereço:</strong>
+        {{ cnpjData.logradouro || 'N/D' }}, {{ cnpjData.numero || 'N/D' }} -
+        {{ cnpjData.bairro || 'N/D' }}, {{ cnpjData.municipio || 'N/D' }}/{{ cnpjData.uf || 'N/D' }} -
+        {{ cnpjData.cep || 'N/D' }}
+      </p>
+      <p><strong>Telefone:</strong> {{ cnpjData.telefone || 'N/D' }}</p>
+      <p><strong>Email:</strong> {{ cnpjData.email || 'N/D' }}</p>
+      <div *ngFor="let cnae of cnpjData.cnaes_secundarios">
+        <p><strong>Código:</strong> {{ cnae.codigo }}</p>
+        <p><strong>Descrição:</strong> {{ cnae.descricao || 'N/D' }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-error *ngIf="error" class="mt-3">{{ error }}</mat-error>
+
+</div>
