@@ -5,7 +5,7 @@ import { environment } from '../../../environments/environment';
 
 export interface CnpjEntity {
   cnpj: string;
-  razao_social: string;
+  nome: string;
   nome_fantasia: string;
   situacao: string;
   tipo: string;

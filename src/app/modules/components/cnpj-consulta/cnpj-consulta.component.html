@@ -21,7 +21,7 @@
 
   <mat-card *ngIf="cnpjData" class="cnpj-card-dark mt-3">
     <mat-card-title class="cnpj-card-title">
-      {{ cnpjData.razao_social || 'N/D' }} ({{ cnpjData.nome_fantasia || 'N/D' }})
+      {{ cnpjData.nome || 'N/D' }} ({{ cnpjData.nome_fantasia || 'N/D' }})
     </mat-card-title>
     <mat-card-content class="cnpj-card-content">
       <p><strong>CNPJ:</strong> {{ cnpjData.cnpj || 'N/D' }}</p>
