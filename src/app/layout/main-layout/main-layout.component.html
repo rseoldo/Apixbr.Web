@@ -2,8 +2,11 @@
 
   <!-- SIDEBAR -->
   <aside class="sidebar" [class.open]="sidebarOpen">
-    <div class="brand">
-      <span class="logo-main">APIX<span>BR</span></span>
+    <div class="sidebar-header">
+      <span class="brand">APIX<span>BR</span></span>
+      <button class="close-btn" (click)="closeSidebar()">
+        <mat-icon>close</mat-icon>
+      </button>
     </div>
 
     <nav class="menu">
@@ -11,18 +14,46 @@
         <mat-icon>dashboard</mat-icon>
         Dashboard
       </a>
-      <a routerLink="./cnpj-consulta" routerLinkActive="active">
-        <mat-icon>business</mat-icon>
-        API CNPJ
+
+      <div class="menu-group">
+        <div class="menu-header" (click)="toggleApiSubmenu()">
+          <mat-icon>widgets</mat-icon>
+          APIs
+          <mat-icon class="chevron" [class.open]="apiSubmenuOpen">expand_more</mat-icon>
+        </div>
+
+        <div class="submenu" [class.open]="apiSubmenuOpen">
+          <a routerLink="/app/apis" routerLinkActive="active">
+            <mat-icon>view_list</mat-icon> Todas as APIs
+          </a>
+          <a routerLink="/app/cnpj-consulta" routerLinkActive="active">
+            <mat-icon>badge</mat-icon> CNPJ
+          </a>
+          <a routerLink="/app/cpf-consulta" routerLinkActive="active">
+            <mat-icon>person</mat-icon> CPF
+          </a>
+          <a routerLink="/app/cep-consulta" routerLinkActive="active">
+            <mat-icon>location_on</mat-icon> CEP
+          </a>
+          <a routerLink="/app/ddd-consulta" routerLinkActive="active">
+            <mat-icon>call</mat-icon> DDD
+          </a>
+          <a routerLink="/app/apis/test" routerLinkActive="active">
+            <mat-icon>play_arrow</mat-icon> Testar APIs
+          </a>
+        </div>
+      </div>
+
+      <a routerLink="/app/clients" routerLinkActive="active">
+        <mat-icon>groups</mat-icon>
+        Clients
       </a>
-        <a routerLink="/app/apis" routerLinkActive="active">
-        <mat-icon>api</mat-icon>
-        APIs
-      </a>
+
       <a routerLink="/app/billing" routerLinkActive="active">
-        <mat-icon>payments</mat-icon>
+        <mat-icon>receipt_long</mat-icon>
         Billing
       </a>
+
       <a routerLink="/app/settings" routerLinkActive="active">
         <mat-icon>settings</mat-icon>
         Configurações
@@ -30,24 +61,13 @@
     </nav>
   </aside>
 
+  <!-- Overlay -->
+  <div class="overlay" [class.show]="sidebarOpen" (click)="closeSidebar()"></div>
+
   <!-- MAIN CONTENT -->
   <div class="content-area">
-    <!-- TOPBAR -->
-    <header class="topbar">
-      <button class="toggle-btn" (click)="toggleSidebar()">☰</button>
 
-      <div class="space"></div>
-
-      <div class="user-section">
-        <span class="username" *ngIf="authService.usuario$ | async as user">
-          Olá, {{ user.name }}
-        </span>
-        <img src="https://avatars.githubusercontent.com/u/9919?v=4" class="avatar">
-        <button class="logout-button" (click)="logout()">
-          <mat-icon>logout</mat-icon>
-        </button>
-      </div>
-    </header>
+    <app-topbar (sidebarToggle)="toggleSidebarClick()"></app-topbar>
 
     <!-- PAGE CONTENT -->
     <main class="page-content">
@@ -56,5 +76,6 @@
 
     <!-- OVERLAY MOBILE -->
     <div class="overlay" [class.show]="sidebarOpen" (click)="closeSidebar()"></div>
+
   </div>
 </div>

@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from './core/auth/auth.guard';
+import { CLIENT_ROUTES } from './features/clients';
 
 export const appRoutes: Routes = [
-    // HOME
+
+    // HOME (público)
     {
         path: '',
         loadComponent: () =>
@@ -23,7 +25,7 @@ export const appRoutes: Routes = [
             import('./modules/auth/register/register.component').then(m => m.RegisterComponent)
     },
 
-    // LAYOUT + ÁREA LOGADA
+    // ÁREA LOGADA
     {
         path: 'app',
         loadComponent: () =>
@@ -40,22 +42,35 @@ export const appRoutes: Routes = [
             },
             {
                 path: 'apis',
-                loadComponent: () => import('./modules/apis/components/apis-list/apis-list.component').then(m => m.ApisListComponent),
+                loadComponent: () =>
+                    import('./modules/apis/components/apis-list/apis-list.component')
+                        .then(m => m.ApisListComponent),
                 canActivate: [AuthGuard]
             },
             {
                 path: 'apis/:id',
-                loadComponent: () => import('./modules/apis/components/apis-detail/apis-detail.component').then(m => m.ApisDetailComponent),
+                loadComponent: () =>
+                    import('./modules/apis/components/apis-detail/apis-detail.component')
+                        .then(m => m.ApisDetailComponent),
                 canActivate: [AuthGuard]
             },
             {
                 path: 'apis/test',
-                loadComponent: () => import('./modules/apis/components/apis-test/apis-test.component').then(m => m.ApisTestComponent),
+                loadComponent: () =>
+                    import('./modules/apis/components/apis-test/apis-test.component')
+                        .then(m => m.ApisTestComponent),
                 canActivate: [AuthGuard]
             },
-                        {
+            {
                 path: 'cnpj-consulta',
-                loadComponent: () => import('./modules/components/cnpj-consulta/cnpj-consulta.component').then(m => m.CnpjConsultaComponent),
+                loadComponent: () =>
+                    import('./modules/components/cnpj-consulta/cnpj-consulta.component')
+                        .then(m => m.CnpjConsultaComponent),
+                canActivate: [AuthGuard]
+            },
+            {
+                path: 'clients',
+                children: CLIENT_ROUTES,
                 canActivate: [AuthGuard]
             }
         ]
@@ -64,4 +79,3 @@ export const appRoutes: Routes = [
     // WILDCARD
     { path: '**', redirectTo: '' }
 ];
-

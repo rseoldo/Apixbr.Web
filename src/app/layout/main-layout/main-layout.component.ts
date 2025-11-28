@@ -1,41 +1,46 @@
-import { Component, HostBinding, Renderer2 } from '@angular/core';
-import { CommonModule, AsyncPipe } from '@angular/common';
+import { Component, Renderer2 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthService } from '../../core/auth/auth.service';
+import { TopbarComponent } from "../topbar/topbar.component";
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
   imports: [
     CommonModule,
-    AsyncPipe,
     RouterModule,
-    MatIconModule
+    MatIconModule,
+    TopbarComponent
   ],
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss']
 })
 export class MainLayoutComponent {
   sidebarOpen = false;
+  apiSubmenuOpen = false;
+  @ViewChild('topbar') topbar!: TopbarComponent;
 
   constructor(
     public authService: AuthService,
     private renderer: Renderer2
-  ) {}
+  ) { }
 
-  toggleSidebar() {
+  toggleSidebarClick() {
     this.sidebarOpen = !this.sidebarOpen;
-    this.lockScroll(this.sidebarOpen);
+    // Fechar submenu ao fechar sidebar
+    if (!this.sidebarOpen) this.apiSubmenuOpen = false;
   }
 
   closeSidebar() {
     this.sidebarOpen = false;
-    this.lockScroll(false);
+    this.apiSubmenuOpen = false;
   }
 
-  logout() {
-    this.authService.logout();
+  toggleApiSubmenu() {
+    this.apiSubmenuOpen = !this.apiSubmenuOpen;
   }
 
   // 🔹 Bloqueia scroll quando menu aberto no mobile

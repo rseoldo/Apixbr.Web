@@ -1,0 +1,22 @@
+.container {
+    padding: 16px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px
+}
+
+table {
+    width: 100%;
+    margin-top: 12px
+}
+
+.loading-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px
+}

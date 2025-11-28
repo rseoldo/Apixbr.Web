@@ -1,29 +1,119 @@
 <div class="home-container">
 
-  <!-- Hero section -->
+  <!-- HERO -->
   <section class="hero">
-    <h1>Bem-vindo ao ApixBR</h1>
-    <p>Transformando ideias em soluções com APIs inteligentes e gestão completa.</p>
-    <div class="buttons">
-      <a mat-raised-button color="primary" routerLink="/login">Login</a>
-      <a mat-raised-button color="accent" routerLink="/register">Registrar</a>
+    <div class="hero-left">
+      <h1>APIs brasileiras <span class="accent">para desenvolvedores de verdade</span></h1>
+      <p class="subtitle">CNPJ, CEP, NFS-e, boletos e endpoints essenciais — performance, segurança e simplicidade.</p>
+
+      <div class="hero-actions">
+        <a mat-flat-button color="primary" routerLink="/register" class="btn-primary">Criar conta</a>
+        <a mat-stroked-button color="primary" routerLink="/login" class="btn-ghost">Entrar</a>
+      </div>
+
+      <div class="trust">
+        <span class="chip">LGPD</span>
+        <span class="chip">SLA 99.9%</span>
+        <span class="chip">HTTPS</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="code-preview">
+        <div class="code-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        </div>
+        <pre><code>{{ codeSnippets.js }}</code></pre>
+        <div class="copy-row">
+          <button mat-icon-button matTooltip="Copiar exemplo JS" (click)="copyCode(codeSnippets.js)">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Features section -->
+  <!-- FEATURES -->
   <section class="features">
-    <mat-card class="feature-card" *ngFor="let f of features">
-      <mat-icon>{{ f.icon }}</mat-icon>
-      <h3>{{ f.title }}</h3>
-      <p>{{ f.description }}</p>
-    </mat-card>
+    <div class="features-grid">
+      <mat-card class="feature-card" *ngFor="let f of features">
+        <mat-icon>{{ f.icon }}</mat-icon>
+        <h3>{{ f.title }}</h3>
+        <p>{{ f.description }}</p>
+      </mat-card>
+    </div>
   </section>
 
-  <!-- Call to action -->
+  <!-- PRICING -->
+  <section class="pricing">
+    <h2>Planos</h2>
+    <div class="pricing-grid">
+      <mat-card class="plan-card" *ngFor="let p of pricing" [class.featured]="p.featured">
+        <div class="plan-header">
+          <h3>{{ p.title }}</h3>
+          <span class="plan-sub">{{ p.subtitle }}</span>
+        </div>
+        <div class="plan-price">{{ p.price }}</div>
+        <ul class="plan-bullets">
+          <li *ngFor="let b of p.bullets">
+            <mat-icon>check_circle</mat-icon>{{ b }}
+          </li>
+        </ul>
+        <div class="plan-cta">
+          <a mat-flat-button color="primary" routerLink="/register">Assinar</a>
+        </div>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- CODE EXAMPLES -->
+  <section class="code-examples">
+    <h2>Exemplos</h2>
+    <mat-tab-group class="code-tabs">
+      <mat-tab label="JavaScript">
+        <div class="code-card">
+          <pre><code>{{ codeSnippets.js }}</code></pre>
+          <div class="code-actions">
+            <button mat-flat-button (click)="copyCode(codeSnippets.js)"><mat-icon>content_copy</mat-icon> Copiar</button>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="C#">
+        <div class="code-card">
+          <pre><code>{{ codeSnippets.csharp }}</code></pre>
+          <div class="code-actions">
+            <button mat-flat-button (click)="copyCode(codeSnippets.csharp)"><mat-icon>content_copy</mat-icon> Copiar</button>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Python">
+        <div class="code-card">
+          <pre><code>{{ codeSnippets.py }}</code></pre>
+          <div class="code-actions">
+            <button mat-flat-button (click)="copyCode(codeSnippets.py)"><mat-icon>content_copy</mat-icon> Copiar</button>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </section>
+
+  <!-- WHY -->
+  <section class="why">
+    <h2>Por que usar ApixBR?</h2>
+    <div class="why-grid">
+      <mat-card class="why-card" *ngFor="let w of why">
+        <mat-icon>{{ w.icon }}</mat-icon>
+        <h4>{{ w.title }}</h4>
+        <p>{{ w.desc }}</p>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
   <section class="cta">
-    <h2>Comece agora</h2>
-    <p>Registre-se e explore todas as funcionalidades do ApixBR.</p>
-    <a mat-raised-button color="primary" routerLink="/register">Registrar-se</a>
+    <h2>Pronto para começar?</h2>
+    <p>Crie sua conta e gere uma API Key em segundos.</p>
+    <a mat-flat-button color="primary" routerLink="/register" class="cta-btn">Criar conta grátis</a>
   </section>
 
 </div>

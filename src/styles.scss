@@ -37,3 +37,32 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* ======== APixBR Dialog — Reset absoluto ======== */
+
+/* ======== APixBR Dialog — Reset absoluto ======== */
+
+.cdk-overlay-pane.apixbr-dialog {
+  max-height: none !important;
+  overflow: hidden !important;
+}
+
+.cdk-overlay-pane.apixbr-dialog .mat-mdc-dialog-container {
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.cdk-overlay-pane.apixbr-dialog .mat-mdc-dialog-surface {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+body {
+  background: #0c0f17 !important;
+  color: #e2e8f0 !important;
+}
+
+

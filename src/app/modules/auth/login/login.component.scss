@@ -1,116 +1,116 @@
-/* ---------- BACKGROUND DE TELA ---------- */
+/* ===== WRAPPER ===== */
 .login-wrapper {
-  width: 100%;
-  height: 100vh;
-
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: radial-gradient(circle at top, #0b0c10, #050507);
+  padding: 20px;
 
-  background: radial-gradient(circle at 20% 20%, #0d1117, #010409 70%);
-  background-attachment: fixed;
-}
-
-/* ---------- CARD PRINCIPAL (GLASS) ---------- */
-.login-card {
-  width: 420px;
-  padding: 35px;
-  border-radius: 18px;
-
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  box-shadow: 0 0 25px rgba(0, 182, 255, 0.1);
-  animation: fadeUp 0.6s ease forwards;
-}
-
-/* ---------- ANIMAÇÃO SMOOTH ---------- */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ---------- LOGO ---------- */
-.logo {
-  text-align: center;
-  margin-bottom: 10px;
-
-  .logo-main {
-    font-size: 32px;
-    font-weight: 800;
-    letter-spacing: 1px;
-
-    color: #58a6ff;
-    text-shadow: 0 0 12px rgba(56, 139, 253, 0.9);
-
-    span {
-      color: #7ee787;
-      text-shadow: 0 0 12px rgba(46, 160, 67, 0.7);
-    }
+  @media (max-width: 768px) {
+    padding: 15px;
   }
 }
 
-/* ---------- TÍTULO ---------- */
-h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: #e6edf3;
-  font-weight: 600;
-}
-
-/* ---------- INPUT FULL WIDTH ---------- */
-.full {
+/* ===== CARD ===== */
+.login-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 40px;
   width: 100%;
+  max-width: 400px;
+  text-align: center;
+  color: #e6edf3;
+  box-shadow: 0 0 28px #00d7ff33;
+
+  h1 {
+    font-size: 2.2rem;
+    color: #00d7ff;
+    margin-bottom: 8px;
+
+    @media (max-width: 480px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    color: #a8c7d8;
+    margin-bottom: 25px;
+  }
+
+  .full {
+    width: 100%;
+    margin-bottom: 18px;
+  }
 }
 
-/* ---------- BOTÃO LOGIN ---------- */
+/* ===== INPUTS MATERIAL DARK ===== */
+.login-card ::ng-deep .mat-mdc-text-field-wrapper {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+}
+
+.login-card ::ng-deep .mdc-floating-label {
+  color: #7ea8b7 !important;
+}
+
+.login-card ::ng-deep .mdc-text-field--focused .mdc-floating-label {
+  color: #00d7ff !important;
+}
+
+.login-card ::ng-deep .mdc-text-field__input {
+  color: #e6edf3 !important;
+}
+
+/* ===== BOTÃO ===== */
 .btn-login {
-  margin-top: 10px;
-  padding: 12px 0;
-
-  background: linear-gradient(90deg, #238636, #2ea043);
-  color: white;
-
+  width: 100%;
+  padding: 14px 0;
   border-radius: 10px;
-  font-weight: 600;
-  font-size: 17px;
-
-  transition: 0.2s ease;
+  font-weight: 700;
+  font-size: 1rem;
+  background: linear-gradient(90deg, #00d7ff88, #00b9ff88); /* neon mais suave */
+  color: #00161c;
+  box-shadow: 0 0 18px #00d7ff44; /* neon suave */
+  transition: all 0.25s;
 
   &:hover {
-    filter: brightness(1.12);
-    box-shadow: 0 0 12px rgba(30, 255, 111, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 0 28px #00d7ff66;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 
-/* ---------- LINK REGISTER ---------- */
-.register {
-  margin-top: 20px;
-  text-align: center;
-  color: #8b949e;
+/* ===== LINK ===== */
+.link-register {
+  display: inline-block;
+  margin-top: 18px;
+  color: #00d7ff;
+  text-decoration: none;
+  font-size: 0.9rem;
 
-  a {
-    color: #58a6ff;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
+  &:hover {
+    text-shadow: 0 0 6px #00d7ff44; /* neon suave */
+    opacity: 0.85;
   }
 }
 
-/* ---------- MENSAGEM DE ERRO ---------- */
-.error {
-  background: rgba(255, 90, 90, 0.15);
-  border: 1px solid rgba(255, 90, 90, 0.3);
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 30px 20px;
+  }
 
-  padding: 10px;
-  border-radius: 8px;
-
-  text-align: center;
-  font-weight: 600;
-  color: #ff7b7b;
-
-  margin-bottom: 15px;
+  .btn-login {
+    font-size: 0.95rem;
+    padding: 12px 0;
+  }
 }

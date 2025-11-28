@@ -1,0 +1,39 @@
+<div class="container">
+    <h2>{{ editing ? 'Editar Client' : 'Novo Client' }}</h2>
+
+
+    <form [formGroup]="form" (ngSubmit)="save()">
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="name" />
+            <mat-error *ngIf="form.controls['name'].hasError('required')">Nome é obrigatório</mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Descrição</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Plano</mat-label>
+            <mat-select formControlName="plan">
+                <mat-option value="Free">Free</mat-option>
+                <mat-option value="Basic">Basic</mat-option>
+                <mat-option value="Pro">Pro</mat-option>
+                <mat-option value="Enterprise">Enterprise</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+        <div class="actions">
+            <button mat-flat-button color="primary" type="submit">Salvar</button>
+            <button mat-button type="button" (click)="back()">Voltar</button>
+        </div>
+
+
+    </form>
+</div>

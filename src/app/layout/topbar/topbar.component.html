@@ -1,0 +1,43 @@
+<header class="topbar">
+  <div class="topbar-left">
+    <button mat-icon-button class="hamburger" (click)="toggleSidebarClick()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <div class="brand">
+      <span class="app-name">APIX<span>BR</span></span>
+    </div>
+  </div>
+
+  <div class="topbar-right" *ngIf="usuario$ | async as user">
+    <button mat-icon-button class="icon-btn" aria-label="Notificações">
+      <mat-icon>notifications_none</mat-icon>
+    </button>
+
+    <button mat-icon-button class="icon-btn" aria-label="Ajuda">
+      <mat-icon>help_outline</mat-icon>
+    </button>
+
+    <div class="user-block" [matMenuTriggerFor]="userMenu" matTooltip="Abrir menu">
+      <div class="user-info">
+        <span class="user-name">Olá, {{ user.name || user.email }}</span>
+      </div>
+
+      <div class="avatar-wrapper topbar-avatar" matRipple>
+        <img src="{{ user.avatarUrl || 'https://avatars.githubusercontent.com/u/9919?v=4' }}" class="avatar" />
+        <span class="avatar-glow"></span>
+      </div>
+    </div>
+
+    <mat-menu #userMenu="matMenu" class="menu-dark">
+      <button mat-menu-item routerLink="/app/settings">
+        <mat-icon>person</mat-icon>
+        <span>Minha conta</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+</header>

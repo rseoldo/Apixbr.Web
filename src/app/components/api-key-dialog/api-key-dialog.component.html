@@ -1,0 +1,25 @@
+<div class="dialog-wrapper">
+
+  <h2 class="title">
+    <mat-icon class="key-icon">vpn_key</mat-icon>
+    API Key Gerada
+  </h2>
+
+  <p class="subtitle">
+    Esta chave é exibida apenas uma vez.  
+    Copie e armazene em segurança.
+  </p>
+
+  <div class="key-box">
+    <code>{{ data.apiKey }}</code>
+
+    <button mat-icon-button (click)="copyKey()" class="copy-btn">
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </div>
+
+  <div class="actions">
+    <button mat-flat-button color="primary" mat-dialog-close>Fechar</button>
+  </div>
+
+</div>

@@ -1,0 +1,98 @@
+.dialog-wrapper {
+  background: #111;
+  color: #e0e0e0;
+  padding: 28px;
+  border-radius: 18px;
+  width: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.key-icon {
+  color: #7cb4ff;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-bottom: 18px;
+}
+
+.key-box {
+  background: #1c1c1c;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  font-family: "JetBrains Mono", monospace;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.key-box code {
+  flex: 1;
+  color: #9be2ff;
+  word-break: break-all;
+}
+
+.copy-btn {
+  color: #9be2ff;
+  margin-left: 6px;
+  transition: 0.2s;
+}
+
+.copy-btn:hover {
+  transform: scale(1.12);
+  color: #d9f5ff;
+}
+
+.actions {
+  margin-top: 28px;
+  text-align: right;
+}
+
+.apixbr-snackbar {
+  background: #222 !important;
+  color: #fff !important;
+}
+
+.dialog-wrapper {
+  background: #0b0b0b;
+  color: #f7f7f7;
+  padding: 32px;
+  width: 520px;
+  border-radius: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  overflow: hidden; /* impede scroll interno */
+}
+
+.key-box {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+code {
+  flex: 1;
+  word-break: break-all;
+  color: #9de1ff;
+}
+

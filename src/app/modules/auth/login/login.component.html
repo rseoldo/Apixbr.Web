@@ -1,40 +1,24 @@
 <div class="login-wrapper">
-  <div class="login-card animate">
+  <div class="login-card">
+    <h1>Entrar</h1>
+    <p>Acesse sua plataforma de APIs</p>
 
-    <div class="logo">
-      <span class="logo-main">APIX<span>BR</span></span>
-    </div>
+    <form [formGroup]="form" (ngSubmit)="login()">
 
-    <h2>Autenticação</h2>
-
-    @if(error) {
-      <div class="error">{{ error }}</div>
-    }
-
-    <form (ngSubmit)="login()">
-
-      <mat-form-field appearance="fill" class="full">
+      <mat-form-field appearance="outline" class="full">
         <mat-label>Email</mat-label>
-        <input matInput [(ngModel)]="email" name="email" required />
+        <input matInput formControlName="email" type="email" autocomplete="off">
       </mat-form-field>
 
-      <mat-form-field appearance="fill" class="full">
+      <mat-form-field appearance="outline" class="full">
         <mat-label>Senha</mat-label>
-        <input matInput type="password" [(ngModel)]="password" name="password" required />
+        <input matInput formControlName="senha" type="password">
       </mat-form-field>
 
-      <button
-        mat-raised-button
-        class="btn-login full"
-        type="submit">
-        Entrar
-      </button>
+      <button mat-flat-button class="btn-login" type="submit">Acessar</button>
+
     </form>
 
-    <p class="register">
-      Não tem conta?
-      <a routerLink="/register">Criar agora</a>
-    </p>
-
+    <a routerLink="/auth/register" class="link-register">Criar conta</a>
   </div>
 </div>

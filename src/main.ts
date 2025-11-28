@@ -8,6 +8,7 @@ import { AuthInterceptor } from './app/core/auth/auth.interceptor';
 import { appRoutes } from './app/app.routes';
 import { apiKeyInterceptor } from './app/modules/apis/interceptors/api-key.interceptor';
 import { jwtInterceptor } from './app/modules/apis/interceptors/jwt.interceptor';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 bootstrapApplication(AppComponent, {
   providers: [
