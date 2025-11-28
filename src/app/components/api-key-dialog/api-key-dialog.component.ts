@@ -11,7 +11,6 @@ import { NgIf } from '@angular/common';
   standalone: true,
   selector: 'app-api-key-dialog',
   imports: [
-    MatDialogActions,
     ClipboardModule,
     MatButtonModule,
     MatIconModule

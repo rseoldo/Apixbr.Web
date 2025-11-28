@@ -74,19 +74,19 @@ export class HomeComponent {
 
   codeSnippets = {
     csharp: [
-`using ApixBR.Client;
+      `using ApixBR.Client;
 var client = new ApixClient("SUA_API_KEY");
 var cnpj = await client.Cnpj.GetAsync("11222333000181");
 Console.WriteLine(cnpj.RazaoSocial);`
     ].join('\n'),
     js: [
-`import ApixBR from 'apixbr';
+      `import ApixBR from 'apixbr';
 const client = new ApixBR(process.env.API_KEY);
 const cnpj = await client.cnpj.get('11222333000181');
 console.log(cnpj.razao_social);`
     ].join('\n'),
     py: [
-`from apixbr import ApixClient
+      `from apixbr import ApixClient
 client = ApixClient("SUA_API_KEY")
 cnpj = client.cnpj.get("11222333000181")
 print(cnpj["razao_social"])`
