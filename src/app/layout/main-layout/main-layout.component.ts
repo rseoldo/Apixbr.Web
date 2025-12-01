@@ -1,4 +1,4 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component, inject, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,6 +21,8 @@ import { ViewChild } from '@angular/core';
 export class MainLayoutComponent {
   sidebarOpen = false;
   apiSubmenuOpen = false;
+  auth = inject(AuthService);
+  usuario$ = this.auth.usuario$;
   @ViewChild('topbar') topbar!: TopbarComponent;
 
   constructor(

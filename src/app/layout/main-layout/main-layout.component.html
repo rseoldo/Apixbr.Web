@@ -4,6 +4,12 @@
   <aside class="sidebar" [class.open]="sidebarOpen">
     <div class="sidebar-header">
       <span class="brand">APIX<span>BR</span></span>
+
+      <!-- Mostrar o plano do usuário -->
+      <!-- <div class="user-plan" *ngIf="usuario$ | async as user">
+        <small>Plano: {{ user.plan }}</small>
+      </div> -->
+
       <button class="close-btn" (click)="closeSidebar()">
         <mat-icon>close</mat-icon>
       </button>

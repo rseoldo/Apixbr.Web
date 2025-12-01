@@ -3,15 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, tap } from 'rxjs';
 import { TokenService } from '../services/token.service';
 import { environment } from '../../../environments/environment';
+import { User } from '../../features/clients/models/user.model';
+import { PlanEnum } from '../enums/plan.enum';
 
 interface LoginResponse {
   accessToken: string;
   refreshToken: string;
-  user: {
-    id: number;
-    name: string;
-    email: string;
-  };
+  user: User
 }
 
 @Injectable({ providedIn: 'root' })
@@ -46,8 +44,8 @@ export class AuthService {
   // -------------------------------
   // REGISTRO
   // -------------------------------
-  register(name: string, email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/account/register`, { name, email, password });
+  register(name: string, email: string, password: string, plan: PlanEnum): Observable<any> {
+    return this.http.post(`${this.apiUrl}/account/register`, { name, email, password, plan });
   }
 
   // -------------------------------

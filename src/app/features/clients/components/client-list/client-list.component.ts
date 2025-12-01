@@ -19,7 +19,7 @@ import { CreateApiKeyDto } from '../../models/apikey.model';
 })
 
 export class ClientListComponent implements OnInit {
-  cols = ['name', 'plan', 'createdAt', 'actions'];
+  cols = ['name', 'createdAt', 'actions'];
   clients: Client[] = [];
   loading = false;
   expiresAt?: string;

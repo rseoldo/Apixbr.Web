@@ -9,30 +9,40 @@
     <h2>Criar Conta</h2>
 
     @if(error) {
-    <div class="error">{{ error }}</div>
+      <div class="error">{{ error }}</div>
     }
 
     <form (ngSubmit)="register()">
 
       <mat-form-field appearance="fill" class="full">
         <mat-label>Nome</mat-label>
-        <input matInput [(ngModel)]="name" name="nome" required />
+        <input matInput [(ngModel)]="user.name" name="nome" required />
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full">
         <mat-label>Email</mat-label>
-        <input matInput [(ngModel)]="email" name="email" required />
+        <input matInput [(ngModel)]="user.email" name="email" required />
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full">
         <mat-label>Senha</mat-label>
-        <input matInput type="password" [(ngModel)]="password" name="password" required />
+        <input matInput type="password" [(ngModel)]="user.password" name="password" required />
       </mat-form-field>
 
       <mat-form-field appearance="fill" class="full">
         <mat-label>Confirmar Senha</mat-label>
         <input matInput type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required />
       </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Plano</mat-label>
+        <mat-select [(ngModel)]="user.plan" name="plan" required>
+          <mat-option *ngFor="let p of planOptions" [value]="p.value">
+            {{ p.label }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
 
       <button mat-raised-button type="submit" class="btn-register full">
         Registrar
