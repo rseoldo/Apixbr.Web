@@ -7,11 +7,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { ClientsService } from '../../services/client.service';
-import { Client } from '../../models/client.model';
+import { Client } from '../../../../shared/models/client/client.model';
 import { ApiKeyService } from '../../services/apikey.service';
 import { map, switchMap } from 'rxjs';
-import { ApiKeyResponse, CreateApiKeyDto } from '../../models/apikey.model';
-import { ApiKeyDialogComponent } from '../../../../components/api-key-dialog/api-key-dialog.component';
+import { ApiKeyResponse, CreateApiKeyDto } from '../../../../shared/models/api/apikey.model';
+import { ApiKeyDialogComponent } from '../../../../shared/components/api-key-dialog/api-key-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 

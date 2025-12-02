@@ -8,63 +8,63 @@ export const appRoutes: Routes = [
     {
         path: '',
         loadComponent: () =>
-            import('./modules/home/home.component').then(m => m.HomeComponent)
+            import('./features/home/home.component').then(m => m.HomeComponent)
     },
 
     // LOGIN
     {
         path: 'login',
         loadComponent: () =>
-            import('./modules/auth/login/login.component').then(m => m.LoginComponent)
+            import('./features/auth/login/login.component').then(m => m.LoginComponent)
     },
 
     // REGISTER
     {
         path: 'register',
         loadComponent: () =>
-            import('./modules/auth/register/register.component').then(m => m.RegisterComponent)
+            import('./features/auth/register/register.component').then(m => m.RegisterComponent)
     },
 
     // ÁREA LOGADA
     {
         path: 'app',
         loadComponent: () =>
-            import('./layout/main-layout/main-layout.component')
+            import('./core/layout/main-layout/main-layout.component')
                 .then(m => m.MainLayoutComponent),
 
         children: [
             {
                 path: 'dashboard',
                 loadComponent: () =>
-                    import('./modules/dashboard/dashboard.component')
+                    import('./features/dashboard/dashboard.component')
                         .then(m => m.DashboardComponent),
                 canActivate: [AuthGuard]
             },
             {
                 path: 'apis',
                 loadComponent: () =>
-                    import('./modules/apis/components/apis-list/apis-list.component')
+                    import('./features/apis/components/apis-list/apis-list.component')
                         .then(m => m.ApisListComponent),
                 canActivate: [AuthGuard]
             },
             {
                 path: 'apis/:id',
                 loadComponent: () =>
-                    import('./modules/apis/components/apis-detail/apis-detail.component')
+                    import('./features/apis/components/apis-detail/apis-detail.component')
                         .then(m => m.ApisDetailComponent),
                 canActivate: [AuthGuard]
             },
             {
                 path: 'apis/test',
                 loadComponent: () =>
-                    import('./modules/apis/components/apis-test/apis-test.component')
+                    import('./features/apis/components/apis-test/apis-test.component')
                         .then(m => m.ApisTestComponent),
                 canActivate: [AuthGuard]
             },
             {
                 path: 'cnpj-consulta',
                 loadComponent: () =>
-                    import('./modules/components/cnpj-consulta/cnpj-consulta.component')
+                    import('./features/cnpj-consulta/cnpj-consulta.component')
                         .then(m => m.CnpjConsultaComponent),
                 canActivate: [AuthGuard]
             },

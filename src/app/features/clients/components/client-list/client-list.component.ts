@@ -6,9 +6,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ClientsService } from '../../services/client.service';
-import { Client } from '../../models/client.model';
+import { Client } from '../../../../shared/models/client/client.model';
 import { ApiKeyService } from '../../services/apikey.service';
-import { CreateApiKeyDto } from '../../models/apikey.model';
+import { CreateApiKeyDto } from '../../../../shared/models/api/apikey.model';
 
 @Component({
   standalone: true,

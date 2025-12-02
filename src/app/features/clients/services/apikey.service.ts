@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "../../../../environments/environment";
 import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs/internal/Observable";
-import { ApiKeyResponse, CreateApiKeyDto } from "../models/apikey.model";
+import { ApiKeyResponse, CreateApiKeyDto } from "../../../shared/models/api/apikey.model";
 
 @Injectable({ providedIn: 'root' })
 export class ApiKeyService {
